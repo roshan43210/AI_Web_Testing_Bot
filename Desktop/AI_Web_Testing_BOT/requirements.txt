@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+selenium
+requests
+scikit-learn
+pydantic
+chromedriver-autoinstaller
+beautifulsoup4

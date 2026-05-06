@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Testing Bot</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Web Testing Bot</h1>
+            <p>Automated Link Testing & Analysis</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="urlInput">Enter Website URL to Test</label>
+                <div class="input-group">
+                    <input type="url" id="urlInput" placeholder="https://example.com" required>
+                    <button id="testBtn" onclick="startTest()">Start Test</button>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Crawling website and checking links...</p>
+            </div>
+
+            <div id="results" class="results hidden">
+                <div class="action-bar">
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all" onclick="filterLinks('all')">All</button>
+                        <button class="filter-btn success" data-filter="ok" onclick="filterLinks('ok')">OK</button>
+                        <button class="filter-btn error" data-filter="error" onclick="filterLinks('error')">Error</button>
+                    </div>
+                    <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalLinks">0</span>
+                        <span class="stat-label">Total Links</span>
+                    </div>
+                    <div class="stat-card success">
+                        <span class="stat-number" id="workingLinks">0</span>
+                        <span class="stat-label">Working</span>
+                    </div>
+                    <div class="stat-card error">
+                        <span class="stat-number" id="brokenLinks">0</span>
+                        <span class="stat-label">Broken</span>
+                    </div>
+                    <div class="stat-card warning">
+                        <span class="stat-number" id="successRate">0%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+
+                <div id="aiSummary" class="ai-summary hidden">
+                    <h2>🤖 AI Analysis Summary</h2>
+                    <pre id="summaryText"></pre>
+                </div>
+
+                <div class="links-table">
+                    <h2>Link Details</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Result</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="linksTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="errorModal" class="modal hidden">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeModal()">&times;</span>
+                        <h3>Error Details</h3>
+                        <p id="modalUrl" class="modal-url"></p>
+                        <div id="modalDetail" class="modal-detail"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error" class="error-message hidden">
+                <p id="errorText"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 AI Web Testing Bot</p>
+            <p>Developed by Mr.Rosan kumar khawas</p>
+        </footer>
+    </div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
